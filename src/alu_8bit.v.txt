@@ -1,0 +1,22 @@
+module alu_8bit (
+    input  [7:0] a,
+    input  [7:0] b,
+    input  [2:0] sel,
+    output reg [7:0] y
+);
+
+always @(*) begin
+    case (sel)
+        3'b000: y = a + b;       // Addition
+        3'b001: y = a * b;       // Multiplication
+        3'b010: y = a & b;       // Bitwise AND
+        3'b011: y = a | b;       // Bitwise OR
+        3'b100: y = a ^ b;       // Bitwise XOR
+        3'b101: y = a;           // Pass-through A
+        3'b110: y = a << 1;      // Logical left shift
+        3'b111: y = a >> 1;      // Logical right shift
+        default: y = 8'b00000000;
+    endcase
+end
+
+endmodule

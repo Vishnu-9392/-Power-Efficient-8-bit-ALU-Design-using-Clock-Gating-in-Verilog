@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+module alu_8bit_clk_gated(
+    input clk,
+    input clk_en,         // clock enable for power saving
+    input [7:0] a,
+    input [7:0] b,
+    input [2:0] sel,
+    output reg [7:0] y
+);
+
+    reg [7:0] result;
+
+    // ALU Combinational Logic
+    always @(*) begin
+        case(sel)
+            3'b000: result = a + b;   // ADD
+            3'b001: result = a - b;   // SUB
+            3'b010: result = a & b;   // AND
+            3'b011: result = a | b;   // OR
+            3'b100: result = a ^ b;   // XOR
+            3'b101: result = ~a;      // NOT
+            3'b110: result = a << 1;  // LSHIFT
+            3'b111: result = a >> 1;  // RSHIFT
+            default: result = 8'b00000000;
+        endcase
+    end
+
+    // Sequential Block with Clock Gating
+    always @(posedge clk) begin
+        if (clk_en)      // Only update when enabled (saves dynamic power)
+            y <= result;
+        
+    end
+
+endmodule
+
