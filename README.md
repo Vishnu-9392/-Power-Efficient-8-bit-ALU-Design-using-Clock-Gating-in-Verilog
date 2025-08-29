@@ -16,3 +16,28 @@ Tools Used
 Xilinx Vivado (WebPACK Edition)
 Verilog HDL
 ModelSim / Vivado Simulator for functional simulation
+
+## 🔬 Simulation Results
+### Normal ALU
+![Normal ALU CODE](images/alu_8bit.png)
+
+
+![Normal ALU TB CODE](images/alu_8bit_tb.png)
+
+
+![Normal ALU WAVEFORM](images/alu_8_bit_op.png)
+
+### Clock-Gated ALU
+
+![Clock Gated ALU CODE](images/alu_8bit_clk.png)
+
+![Clock Gated ALU TB CODE](images/alu_8bit_clk_tb.png)
+
+![Clock Gated ALU Waveform](images/alu_8bit_clk_op.png)
+
+## ⚡ Power Analysis
+### Normal ALU Power Report
+![Normal ALU Power](images/power_alu.png)
+
+### Clock-Gated ALU Power Report
+![Clock Gated ALU Power](images/power_alu_clk.png)
