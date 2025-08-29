@@ -37,7 +37,7 @@ ModelSim / Vivado Simulator for functional simulation
 
 ## ⚡ Power Analysis
 ### Normal ALU Power Report
-![Normal ALU Power](images/power_alu.png)
+![Normal ALU Power](images/power_alu.jpg)
 
 ### Clock-Gated ALU Power Report
 ![Clock Gated ALU Power](images/power_alu_clk.png)
