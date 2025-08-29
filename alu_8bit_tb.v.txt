@@ -1,0 +1,45 @@
+module alu_8bit_tb();
+
+    reg [7:0] a, b;
+    reg [2:0] sel;
+    wire [7:0] y;
+
+    // Instantiate the ALU module
+    alu_8bit dut (
+        .a(a),
+        .b(b),
+        .sel(sel),
+        .y(y)
+    );
+
+    initial begin
+        // Test case 1: ADD
+        a = 8'b00001010; // 10
+        b = 8'b00000101; // 5
+        sel = 3'b000; #10;
+
+        // Test case 2: MUL
+        sel = 3'b001; #10;
+
+        // Test case 3: AND
+        sel = 3'b010; #10;
+
+        // Test case 4: OR
+        sel = 3'b011; #10;
+
+        // Test case 5: XOR
+        sel = 3'b100; #10;
+
+        // Test case 6: PASS A
+        sel = 3'b101; #10;
+
+        // Test case 7: LSHIFT
+        sel = 3'b110; #10;
+
+        // Test case 8: RSHIFT
+        sel = 3'b111; #10;
+
+        $stop;
+    end
+
+endmodule
